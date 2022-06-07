@@ -33,32 +33,43 @@
     <!-- content -->
     <div class="section">
         <div class="container">
-            <h3>Data Kategori</h3>
+            <h3>Data Produk</h3>
             <div class="box">
-                <p><a href="tambah-kategori.php">Tambah Data</a></p>
+                <p><a href="tambah-produk.php">Tambah Data</a></p>
                 <table border="" class="table">
                     <thead>
                         <th width="60px">No</th>
-                        <th width="500px">Kategori</th>
+                        <th >Kategori</th>
+                        <th >Nama</th>
+                        <th >Harga</th>
+                        <th >Deskripsi</th>
+                        <th >Gambar</th>
+                        <th >Status</th>
                         <th width="300px">Keterangan</th>
                     </thead>
                     <tbody>
                         <?php
                             $no = 1;
-                            $kategori = mysqli_query($conn, "SELECT * FROM tb_kategori ORDER BY category_id DESC");
-                            if(mysqli_num_rows($kategori) > 0){
-                            while($row = mysqli_fetch_array($kategori)){
+                            $produk = mysqli_query($conn, "SELECT * FROM tb_produk LEFT JOIN tb_kategori USING (category_id) ORDER BY product_id DESC");
+                            if(mysqli_num_rows($produk) > 0){
+                            while($row = mysqli_fetch_array($produk)){
                         ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $row['category_name'] ?></td>
+                            <td><?php echo $row['product_name'] ?></td>
+                            <td>Rp. <?php echo number_format($row['product_price']) ?></td>
+                            <td><?php echo $row['product_description'] ?></td>
+                            <td><a href="produk/<?php echo $row['product_image'] ?>" target="_blank"> 
+                            <img src="produk/<?php echo $row['product_image'] ?>" width="60px"> </a></td>
+                            <td><?php echo ($row['product_status'] == 0)? 'Tidak Aktif':'Aktif'; ?></td>
                             <td>
-                                <a href="edit-kategori.php?id=<?php echo $row['category_id'] ?>">Edit</a> || <a href="hapus-kategori.php?idk=<?php echo $row['category_id'] ?>"onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
+                                <a href="edit-produk.php?id=<?php echo $row['product_id'] ?>">Edit</a> || <a href="hapus-kategori.php?idp=<?php echo $row['product_id'] ?>"onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
                             </td>
                         </tr>
                         <?php }}else{ ?>
                             <tr>
-                                <td colspan="3">Tidak ada data</td>
+                                <td colspan="8">Tidak ada data</td>
                             </tr>
                         <?php } ?>
                     </tbody>
