@@ -25,7 +25,7 @@
             <ul id="menulist">
                 <li><a href="produk.php"><i class="fa fa-shopping-bag"></i></a></li>
                 <li><a href=""><i class="fa fa-shopping-cart"></i></a></li> 
-                <li><a href="daftar-user.php">Sign Up</a></li>
+                <li><a href="keluar-user.php">Log Out</a></li>
             </ul>
         </div>
         <img src="img/logo.png" class = "menu1" onclick="togglemenu()">
@@ -36,11 +36,11 @@
             <h3>Profil</h3>
             <div class="box">
                 <form action="" method="POST">
-                    <input type="text" name="nama" class="input-control" value="<?php echo $s->user_name ?> ">
-                    <input type="text" name="user" class="input-control" value="<?php echo $s->username ?> ">
-                    <input type="text" name="hp" class="input-control" value="<?php echo $s->user_telp ?> ">
-                    <input type="email" name="email" class="input-control" value="<?php echo $s->user_email ?> ">
-                    <input type="text" name="alamat" class="input-control" value="<?php echo $s->user_address ?> ">
+                    <input type="text" name="nama" class="input-control" value="<?php echo $s->user_name ?>">
+                    <input type="text" name="user" class="input-control" value="<?php echo $s->username ?>">
+                    <input type="text" name="hp" class="input-control" value="<?php echo $s->user_telp ?>">
+                    <input type="email" name="email" class="input-control" value="<?php echo $s->user_email ?>">
+                    <input type="text" name="alamat" class="input-control" value="<?php echo $s->user_address ?>">
                     <input type="submit" name="submit" value="Ubah Profil" class="btn">
                 </form>
                 <?php
@@ -105,7 +105,7 @@
     <!-- footer -->
     <footer>
         <div class="container">
-            <small>Copyright &copy; 2022 - Website</small>
+            <small>Copyright &copy; 2022 - FitWorld</small>
         </div>
     </footer>
 </body>

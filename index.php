@@ -44,7 +44,7 @@
     <!-- category --->
     <div class="section">
         <div class="container">
-            <h3>Category</h3>
+            <h3 class="h3">Category</h3>
             <div class="box">
                 <?php
                     $kategori = mysqli_query($conn, "SELECT * FROM tb_kategori ORDER BY category_id DESC");
@@ -104,15 +104,15 @@
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
         function togglemenu() {
-            if(menulist.style.maxHeight == "0px") {
-                menulist.style.maxHeight = "130px";
-            }
-            else {
-                menulist.style.maxHeight = "0px";
+            var x = document.getElementById("menulist");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
             }
         }
+        AOS.init();
     </script>
 </body>
 </html>

@@ -43,9 +43,11 @@
 
     <!-- category --->
     <div class="section">
+      
         <div class="container">
-            <h3>Category</h3>
+            <h3 class="h3">Category</h3>
             <div class="box">
+                <form>
                 <?php
                     $kategori = mysqli_query($conn, "SELECT * FROM tb_kategori ORDER BY category_id DESC");
                     if(mysqli_num_rows($kategori) > 0){
@@ -60,8 +62,10 @@
                 <?php }}else{ ?>
                     <p>Kategori tidak ada</p>
                 <?php } ?>    
+                </form>
             </div>
         </div>
+       
     </div>
     <!-- new product -->
     <div class="section">
@@ -105,6 +109,14 @@
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        function togglemenu() {
+            var x = document.getElementById("menulist");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
         AOS.init();
     </script>
 </body>
